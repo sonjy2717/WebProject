@@ -27,7 +27,7 @@ public class ListController extends HttpServlet {
 		Map<String, Object> map = new HashMap<String, Object>();
 		
 		//게시물 개수 카운트
-		int totalCount = dao.selectCount(map);
+		int totalCount = dao.selectCount();
 		
 		/* 페이지 처리 start */
 		//web.xml에 접근하기 위해 서블릿에서 application 내장객체를 얻어옴.
@@ -56,7 +56,8 @@ public class ListController extends HttpServlet {
 		
 		//현재 페이지에 출력할 게시물을 얻어옴
 		List<ManagementDTO> boardLists = dao.selectListPage(map);
-		//커넥션풀에 자원 반납
+		
+		//자원 해제
 		dao.close();
 		
 		//페이지 번호를 생성하기 위해 메서드 호출

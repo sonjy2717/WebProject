@@ -1,5 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.2/dist/css/bootstrap.min.css" rel="stylesheet">
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.2/dist/js/bootstrap.bundle.min.js"></script>
 <%@ include file="../include/global_head.jsp" %>
 
 
@@ -31,15 +33,19 @@
 							<td style="text-align:left;"><input type="text" name=""  value="" class="join_input" /></td>
 						</tr>
 						<tr>
-							<th>청소할 곳 주소</th>
+							<th rowspan="3">주소</th>
+							<td style="text-align:left;"><input type="text" name=""  value="" class="join_input" style="width:70px;" />
+							<button type="button">우편번호</button>
+							</td>
+						</tr>
+						<tr>
+							<td style="text-align:left;"><input type="text" name=""  value="" class="join_input" style="width:300px;" /></td>
+						</tr>
+						<tr>
 							<td style="text-align:left;"><input type="text" name=""  value="" class="join_input" style="width:300px;" /></td>
 						</tr>
 						<tr>
 							<th>연락처</th>
-							<td style="text-align:left;"><input type="text" name=""  value="" class="join_input" style="width:50px;" /> - <input type="text" name=""  value="" class="join_input" style="width:50px;" /> - <input type="text" name=""  value="" class="join_input" style="width:50px;" /></td>
-						</tr>
-						<tr>
-							<th>휴대전화</th>
 							<td style="text-align:left;"><input type="text" name=""  value="" class="join_input" style="width:50px;" /> - <input type="text" name=""  value="" class="join_input" style="width:50px;" /> - <input type="text" name=""  value="" class="join_input" style="width:50px;" /></td>
 						</tr>
 						<tr>

@@ -5,6 +5,26 @@
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.2/dist/css/bootstrap.min.css" rel="stylesheet">
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.2/dist/js/bootstrap.bundle.min.js"></script>
 
+<script>
+function basket(idx, price) {
+	var form = document.frm;
+	
+	form.idx.value = idx;
+	form.price.value = price;
+	form.method = "get";
+	form.action = "../market/basket.do";
+	form.submit();
+}
+function buy(idx, price) {
+	var form = document.frm;
+	
+	form.idx.value = idx;
+	form.price.value = price;
+	form.method = "get";
+	form.action = "../market/buy.do";
+	form.submit();
+}
+</script>
 
  <body>
 	<center>
@@ -22,6 +42,10 @@
 					<img src="../images/market/sub01_title.gif" alt="수아밀 제품 주문" class="con_title" />
 					<p class="location"><img src="../images/center/house.gif" />&nbsp;&nbsp;열린장터&nbsp;>&nbsp;수아밀 제품 주문<p>
 				</div>
+				<form name="frm">
+				<input type="hidden" name="id" value="test계정" />
+				<input type="hidden" name="idx" value="" />
+				<input type="hidden" name="price" value="" />
 				<table cellpadding="0" cellspacing="0" border="0" class="market_board01">
 					<colgroup>
 						<col width="5%" />
@@ -55,29 +79,25 @@
 							+ loop.index) }
 						</td>
 						<td>
-							<a href="../market/view.do?idx=${ row.idx }"><img src="${ row.img }" width="100px"/></a>
+							<a href="../market/view.do?idx=${ row.idx }"><img src="../images/market/${ row.img }" width="100px"/></a>
 						</td>
 						<td align="left">
-							<a href="../market/view.do?idx=${ row.idx }">
-								${ row.name }</a>
+							<a href="../market/view.do?idx=${ row.idx }">${ row.name }</a>
 						</td>
-						<td class="p_style">${ row.price }원</td>
+						<td class="p_style">${ row.price }원
+						</td>
 						<td><img src="../images/market/j_icon.gif" />${ row.point }원</td>
 						<td>
-							<a href="../market/buy.do"><img src="../images/market/btn01.gif" style="margin-bottom:5px;" /></a>
-							<a href="../market/basket.do"><img src="../images/market/btn02.gif" /></a>
+							<button type="button" onclick="buy('${ row.idx }', '${ row.price }');"><img src="../images/market/btn01.gif" /></button>
+							<button type="button" onclick="basket('${ row.idx }', '${ row.price }');"><img src="../images/market/btn02.gif" /></button>
 						</td>
 					</tr>
 					</c:forEach>
 				</c:otherwise>
 			</c:choose>
 				</table>
-				<div class="mt-3">
-					<a href="../market/buy.do"><img src="../images/market/btn01.gif" style="margin-bottom:5px; float: right;"></a>
-					<a href="../market/basket.do"><img src="../images/market/btn02.gif" style="float: right;"></a>
-				</div>
+				</form>
 				<br />
-				<div style="clear: both;'"></div>
 				<div align="center" style="margin-top: 20px; font-size: 12pt;">
 					${ map.pagingImg }
 					<!-- <ul class="pagination">

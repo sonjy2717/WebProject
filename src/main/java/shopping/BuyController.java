@@ -11,8 +11,7 @@ import javax.servlet.http.HttpServletResponse;
 @WebServlet("/market/buy.do")
 public class BuyController extends HttpServlet {
 	@Override
-	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-		
+	protected void service(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		
 		req.getRequestDispatcher("/market/basket02.jsp").forward(req, resp);
 	}
